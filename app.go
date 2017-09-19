@@ -61,6 +61,10 @@ spec:
       containers:
       - name: %s
         image: %s
+        resources:
+          requests:
+            cpu: 10m
+            memory: 64Mi
 `, deploymentName, deploymentName, deploymentName, parsedReq.Image)
 
 	req, err := http.NewRequest(http.MethodPost, endpointUrl, strings.NewReader(reqBody))
@@ -76,8 +80,6 @@ spec:
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-
-	
 
 	w.WriteHeader(res.StatusCode)
 	w.Write([]byte("success"))

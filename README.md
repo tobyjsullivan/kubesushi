@@ -14,7 +14,7 @@ curl --request POST \
   --url http://localhost:3000/deployment-requests \
   --header 'content-type: application/json' \
   --data '{
-  "image": "hello-world"
+  "image": "tobyjsullivan/uptime-box:latest"
 }'
 ```
 
